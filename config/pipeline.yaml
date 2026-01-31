@@ -1,0 +1,35 @@
+# Pipeline Configuration
+# This file defines the execution order and enabled modules
+
+# Steps execute in order; modules within a step execute sequentially
+steps:
+  cleanup:
+    - data_processing.cleanup
+
+  data_collection:
+    - data_collection.fetch_gsc_data
+    - data_collection.fetch_ga4_data
+
+  data_processing:
+    - data_processing.calculate_growth_metrics
+    - data_processing.identify_top_performers
+    - data_processing.calculate_yoy_comparison
+
+  analysis:
+    - analysis.gpt_summary_writer
+
+  report_generation:
+    - report_generation.generate_graphs
+    - report_generation.build_html_reports
+    - report_generation.upload_assets
+
+  notifications:
+    - notifications.create_email_drafts
+    - notifications.send_status_email
+
+# Optional: Override settings per step
+# settings:
+#   data_collection:
+#     timeout: 300
+#   notifications:
+#     skip_on_failure: true

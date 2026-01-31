@@ -1,0 +1,5 @@
+client_name,email,name,send_reports
+Acme Corporation,john.smith@acme.com,John Smith,true
+Acme Corporation,marketing@acme.com,Marketing Team,true
+Beta Industries,ceo@betaindustries.com,Jane Doe,true
+Gamma Services,seo@gammaservices.io,SEO Team,true
